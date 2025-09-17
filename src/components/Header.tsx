@@ -21,14 +21,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-4">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
-              <span className="text-2xl font-bold text-gray-800">ReenweezElectro</span>
-            </Link>
-            
-            {/* Pages Menu Button */}
+            {/* Pages Menu Button - moved to left */}
             <div className="relative">
               <button
                 onClick={() => setIsPagesMenuOpen(!isPagesMenuOpen)}
@@ -42,16 +35,41 @@ const Header: React.FC = () => {
               {/* Pages Dropdown */}
               {isPagesMenuOpen && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 py-2 z-50">
-                  {allPages.map((page, index) => (
-                    <Link
-                      key={index}
-                      to={page.path}
-                      onClick={() => setIsPagesMenuOpen(false)}
-                      className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors font-medium"
-                    >
-                      {page.name}
-                    </Link>
-                  ))}
+                  <Link
+                    to="/"
+                    onClick={() => setIsPagesMenuOpen(false)}
+                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors font-medium"
+                  >
+                    Accueil
+                  </Link>
+                  <Link
+                    to="/products"
+                    onClick={() => setIsPagesMenuOpen(false)}
+                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors font-medium"
+                  >
+                    Nos Produits
+                  </Link>
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsPagesMenuOpen(false)}
+                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors font-medium"
+                  >
+                    Contact
+                  </Link>
+                  <Link
+                    to="/faq"
+                    onClick={() => setIsPagesMenuOpen(false)}
+                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors font-medium"
+                  >
+                    Aide & FAQ
+                  </Link>
+                  <Link
+                    to="/cart"
+                    onClick={() => setIsPagesMenuOpen(false)}
+                    className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors font-medium"
+                  >
+                    Mon Panier
+                  </Link>
                 </div>
               )}
             </div>
@@ -59,15 +77,6 @@ const Header: React.FC = () => {
 
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            {categories.map(category => (
-              <Link
-                key={category.id}
-                to={`/category/${category.slug}`}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                {category.name}
-              </Link>
-            ))}
             <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Contact
             </Link>
@@ -104,16 +113,6 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              {categories.map(category => (
-                <Link
-                  key={category.id}
-                  to={`/category/${category.slug}`}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {category.name}
-                </Link>
-              ))}
               <Link
                 to="/contact"
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"

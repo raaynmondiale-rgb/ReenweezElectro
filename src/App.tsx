@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import CategoryPage from './pages/CategoryPage';
 import ProductPage from './pages/ProductPage';
+import ProductsPage from './pages/ProductsPage';
 import ContactPage from './pages/ContactPage';
 import FAQPage from './pages/FAQPage';
 import CartPage from './pages/CartPage';
@@ -19,6 +20,7 @@ function App() {
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/products" element={<ProductsPage />} />
               <Route path="/category/:slug" element={<CategoryPage />} />
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/contact" element={<ContactPage />} />
