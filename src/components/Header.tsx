@@ -11,9 +11,6 @@ const Header: React.FC = () => {
 
   const allPages = [
     { name: 'Accueil', path: '/' },
-    { name: 'Stations & Supports de Recharge', path: '/category/stations-supports' },
-    { name: 'Protections & Accessoires', path: '/category/protections-accessoires' },
-    { name: 'Batteries & Power Banks', path: '/category/batteries-power-banks' },
     { name: 'Contact', path: '/contact' },
     { name: 'Aide & FAQ', path: '/faq' },
     { name: 'Mon Panier', path: '/cart' }
