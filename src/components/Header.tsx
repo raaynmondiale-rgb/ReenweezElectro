@@ -7,10 +7,6 @@ import { categories } from '../data/mockData';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPagesMenuOpen, setIsPagesMenuOpen] = useState(false);
-  const { getTotalItems } = useCart();
-
-  const allPages = [
-    { name: 'Accueil', path: '/' },
     { name: 'Contact', path: '/contact' },
     { name: 'Aide & FAQ', path: '/faq' },
     { name: 'Mon Panier', path: '/cart' }
