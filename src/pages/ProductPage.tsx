@@ -61,13 +61,13 @@ const ProductPage: React.FC = () => {
                     onClick={() => setSelectedImageIndex(index)}
                     className={`w-20 h-20 rounded-lg overflow-hidden border-2 ${
                       selectedImageIndex === index ? 'border-blue-600' : 'border-gray-200'
-                    }`}
+            <Link to="/" className="hover:text-black">Accueil</Link>
                   >
-                    <img src={image} alt="" className="w-full h-full object-cover" />
+            <Link to={`/category/${product.category}`} className="hover:text-black capitalize">
                   </button>
                 ))}
               </div>
-            )}
+            <span className="text-black">{product.name}</span>
           </div>
 
           {/* Product Info */}
@@ -102,15 +102,15 @@ const ProductPage: React.FC = () => {
               )}
             </div>
 
-            {/* Description */}
+              <p className="text-gray-700 mb-6 leading-relaxed">{product.description}</p>
             <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
 
             {/* Features */}
-            <div className="mb-6">
+                <h3 className="font-semibold text-black mb-3">Caractéristiques principales:</h3>
               <h3 className="font-semibold text-gray-800 mb-3">Caractéristiques principales:</h3>
               <ul className="space-y-2">
-                {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-center text-gray-600">
+                    <li key={index} className="flex items-center text-gray-700">
+                      <div className="w-2 h-2 bg-black rounded-full mr-3"></div>
                     <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
                     {feature}
                   </li>
@@ -119,10 +119,10 @@ const ProductPage: React.FC = () => {
             </div>
 
             {/* Compatibility */}
-            <div className="mb-6">
+                <h3 className="font-semibold text-black mb-3">Compatibilité:</h3>
               <h3 className="font-semibold text-gray-800 mb-3">Compatibilité:</h3>
               <div className="flex flex-wrap gap-2">
-                {product.compatibility.map((device, index) => (
+                    <span key={index} className="bg-gray-100 text-black px-3 py-1 rounded-full text-sm">
                   <span key={index} className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">
                     {device}
                   </span>
@@ -131,7 +131,7 @@ const ProductPage: React.FC = () => {
             </div>
 
             {/* Stock Status */}
-            <div className="mb-6">
+              <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-4">
               {product.inStock ? (
                 <span className="text-green-600 font-medium">✓ En stock ({product.stockCount} disponibles)</span>
               ) : (
@@ -139,13 +139,13 @@ const ProductPage: React.FC = () => {
               )}
             </div>
 
-            {/* Add to Cart */}
+              <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 mb-6">
             <div className="bg-white p-6 rounded-xl shadow-md mb-6">
-              <div className="flex items-center space-x-4 mb-4">
+                  <label className="text-black font-medium">Quantité:</label>
                 <label className="text-gray-700 font-medium">Quantité:</label>
                 <select
                   value={quantity}
-                  onChange={(e) => setQuantity(Number(e.target.value))}
+                    className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-black"
                   className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
                 >
                   {[...Array(Math.min(10, product.stockCount))].map((_, i) => (
@@ -157,7 +157,7 @@ const ProductPage: React.FC = () => {
               <div className="space-y-3">
                 <button
                   onClick={handleAddToCart}
-                  disabled={!product.inStock}
+                    className="w-full btn-primary disabled:bg-gray-400 py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2"
                   className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors"
                 >
                   <ShoppingCart className="w-5 h-5" />
@@ -165,7 +165,7 @@ const ProductPage: React.FC = () => {
                 </button>
                 
                 <Link
-                  to="/cart"
+                    className="w-full bg-black hover:bg-white hover:text-black border border-black text-white py-3 px-6 rounded-lg font-semibold block text-center transition-colors"
                   className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold block text-center transition-colors"
                 >
                   Commander maintenant
@@ -179,13 +179,13 @@ const ProductPage: React.FC = () => {
                 <Shield className="w-4 h-4 text-green-600" />
                 <span>Garantie 15 jours</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <Truck className="w-4 h-4 text-black" />
                 <Truck className="w-4 h-4 text-blue-600" />
                 <span>Livraison gratuite</span>
               </div>
             </div>
 
-            {/* Share */}
+              <button className="flex items-center space-x-2 text-black hover:text-gray-600 font-medium">
             <button className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium">
               <Share2 className="w-4 h-4" />
               <span>Partager ce produit</span>
@@ -195,13 +195,13 @@ const ProductPage: React.FC = () => {
 
         {/* Reviews Section */}
         {product.reviews.length > 0 && (
-          <div className="mt-16">
+              <h2 className="text-2xl font-bold text-black mb-6">Avis clients</h2>
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Avis clients</h2>
             <div className="space-y-6">
-              {product.reviews.map(review => (
+                  <div key={review.id} className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
                 <div key={review.id} className="bg-white p-6 rounded-xl shadow-md">
                   <div className="flex items-center justify-between mb-4">
-                    <div>
+                        <h4 className="font-semibold text-black">{review.customerName}</h4>
                       <h4 className="font-semibold text-gray-800">{review.customerName}</h4>
                       <div className="flex items-center mt-1">
                         {[...Array(5)].map((_, i) => (
@@ -215,15 +215,15 @@ const ProductPage: React.FC = () => {
                       </div>
                     </div>
                     <span className="text-sm text-gray-500">{new Date(review.date).toLocaleDateString('fr-FR')}</span>
-                  </div>
-                  <p className="text-gray-600">{review.comment}</p>
+                    <p className="text-gray-700">{review.comment}</p>
+                <span className="text-3xl font-bold text-red-800">{product.price} MAD</span>
                 </div>
-              ))}
+                  <span className="text-xl text-black line-through">{product.originalPrice} MAD</span>
             </div>
           </div>
-        )}
+                  <span className="bg-black text-white px-3 py-1 rounded-full text-sm font-semibold">
       </div>
-    </div>
+              <h1 className="text-3xl font-bold text-black mb-4">{product.name}</h1>
   );
 };
 

@@ -8,16 +8,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
+  background: #000000;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a0aec0;
+  background: #333333;
 }
 
 /* Custom animations */
@@ -56,6 +56,8 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Smooth scrolling */
@@ -83,4 +85,21 @@ html {
 
 .image-hover-zoom:hover img {
   transform: scale(1.1);
+}
+
+/* Monochrome theme utilities */
+.btn-primary {
+  @apply bg-black text-white border border-black transition-all duration-200;
+}
+
+.btn-primary:hover {
+  @apply bg-white text-black border-black;
+}
+
+.btn-secondary {
+  @apply bg-white text-black border border-black transition-all duration-200;
+}
+
+.btn-secondary:hover {
+  @apply bg-black text-white;
 }

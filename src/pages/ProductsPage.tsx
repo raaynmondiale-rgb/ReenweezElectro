@@ -84,19 +84,19 @@ const ProductsPage: React.FC = () => {
                     type="range"
                     min="0"
                     max="1000"
-                    value={minPrice}
+              <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
                     onChange={(e) => setMinPrice(Number(e.target.value))}
-                    className="w-full"
-                  />
+                  <Filter className="w-5 h-5 mr-2 text-black" />
+                  <h3 className="font-semibold text-black">Filtres</h3>
                   <div className="flex justify-between text-sm text-gray-500">
                     <span>{minPrice} MAD</span>
                     <span>{maxPrice} MAD</span>
                   </div>
-                  <input
+                  <h4 className="font-medium text-black mb-3">Catégorie</h4>
                     type="range"
                     min="0"
                     max="1000"
-                    value={maxPrice}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-black"
                     onChange={(e) => setMaxPrice(Number(e.target.value))}
                     className="w-full"
                   />
@@ -108,12 +108,12 @@ const ProductsPage: React.FC = () => {
                 <label className="flex items-center">
                   <input
                     type="checkbox"
-                    checked={inStockOnly}
+                  <h4 className="font-medium text-black mb-3">Prix (MAD)</h4>
                     onChange={(e) => setInStockOnly(e.target.checked)}
                     className="mr-2"
                   />
                   <span className="text-gray-700">En stock seulement</span>
-                </label>
+            <h1 className="text-3xl font-bold text-black mb-2">Nos Produits</h1>
               </div>
             </div>
           </div>
@@ -140,12 +140,12 @@ const ProductsPage: React.FC = () => {
               {filteredAndSortedProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}
-            </div>
-
-            {filteredAndSortedProducts.length === 0 && (
+              <div className="flex items-center justify-between mb-6 bg-white p-4 rounded-xl shadow-md border border-gray-200">
+                <span className="text-black font-medium">Trier par:</span>
+                    <span className="text-black">En stock seulement</span>
               <div className="text-center py-12">
                 <p className="text-gray-500 text-lg">Aucun produit ne correspond à vos critères.</p>
-              </div>
+                  className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-black focus:border-transparent"
             )}
           </div>
         </div>

@@ -50,7 +50,7 @@ const CartPage: React.FC = () => {
             <p className="text-gray-600 mb-8">Découvrez nos produits et ajoutez-les à votre panier.</p>
             <Link
               to="/"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="inline-flex items-center btn-primary px-6 py-3 rounded-lg font-semibold"
             >
               <ArrowLeft className="w-5 h-5 mr-2" />
               Continuer les achats
@@ -66,17 +66,17 @@ const CartPage: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center mb-8">
-            <Link to="/" className="text-blue-600 hover:text-blue-700 mr-4">
+            <Link to="/" className="text-black hover:text-gray-600 mr-4">
               <ArrowLeft className="w-5 h-5" />
             </Link>
-            <h1 className="text-3xl font-bold text-gray-800">Mon Panier ({items.length} article{items.length > 1 ? 's' : ''})</h1>
+            <h1 className="text-3xl font-bold text-black">Mon Panier ({items.length} article{items.length > 1 ? 's' : ''})</h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
               {items.map(item => (
-                <div key={item.product.id} className="bg-white rounded-xl shadow-md p-6">
+                <div key={item.product.id} className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
                   <div className="flex flex-col sm:flex-row gap-4">
                     <img
                       src={item.product.images[0]}
@@ -85,8 +85,8 @@ const CartPage: React.FC = () => {
                     />
                     
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800 mb-2">{item.product.name}</h3>
-                      <p className="text-sm text-gray-600 mb-4 line-clamp-2">{item.product.description}</p>
+                      <h3 className="font-semibold text-black mb-2">{item.product.name}</h3>
+                      <p className="text-sm text-gray-700 mb-4 line-clamp-2">{item.product.description}</p>
                       
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
@@ -96,7 +96,7 @@ const CartPage: React.FC = () => {
                           >
                             <Minus className="w-4 h-4" />
                           </button>
-                          <span className="font-medium text-gray-800 min-w-[2rem] text-center">
+                          <span className="font-medium text-black min-w-[2rem] text-center">
                             {item.quantity}
                           </span>
                           <button
@@ -108,7 +108,7 @@ const CartPage: React.FC = () => {
                         </div>
                         
                         <div className="flex items-center space-x-4">
-                          <span className="font-bold text-gray-900">
+                          <span className="font-bold text-red-800">
                             {item.product.price * item.quantity} MAD
                           </span>
                           <button
@@ -127,21 +127,21 @@ const CartPage: React.FC = () => {
 
             {/* Order Summary & Checkout */}
             <div>
-              <div className="bg-white rounded-xl shadow-md p-6 sticky top-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-6">Résumé de commande</h2>
+              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 sticky top-8">
+                <h2 className="text-xl font-bold text-black mb-6">Résumé de commande</h2>
                 
                 {/* Order Total */}
                 <div className="border-b border-gray-200 pb-4 mb-6">
-                  <div className="flex justify-between items-center text-lg font-bold text-gray-800">
+                  <div className="flex justify-between items-center text-lg font-bold text-black">
                     <span>Total:</span>
-                    <span>{getTotalPrice()} MAD</span>
+                    <span className="text-red-800">{getTotalPrice()} MAD</span>
                   </div>
                   <p className="text-sm text-green-600 mt-1">✓ Livraison gratuite incluse</p>
                 </div>
 
                 {/* Payment Methods */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-gray-800 mb-3">Mode de paiement</h3>
+                  <h3 className="font-semibold text-black mb-3">Mode de paiement</h3>
                   <div className="space-y-3">
                     <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
                       <input
@@ -154,7 +154,7 @@ const CartPage: React.FC = () => {
                       />
                       <Banknote className="w-5 h-5 mr-2 text-green-600" />
                       <div>
-                        <span className="font-medium text-gray-800">Paiement à la livraison</span>
+                        <span className="font-medium text-black">Paiement à la livraison</span>
                         <p className="text-sm text-gray-600">Payez en cash lors de la réception</p>
                       </div>
                     </label>
@@ -168,15 +168,15 @@ const CartPage: React.FC = () => {
                         onChange={(e) => setPaymentMethod(e.target.value as 'paypal')}
                         className="mr-3"
                       />
-                      <CreditCard className="w-5 h-5 mr-2 text-blue-600" />
+                      <CreditCard className="w-5 h-5 mr-2 text-black" />
                       <div>
-                        <span className="font-medium text-gray-800">PayPal</span>
+                        <span className="font-medium text-black">PayPal</span>
                         <p className="text-sm text-gray-600">Carte bancaire sans compte PayPal</p>
                       </div>
                     </label>
                     
                     {paymentMethod === 'paypal' && (
-                      <div className="p-3 bg-blue-50 rounded-lg text-sm text-blue-800">
+                      <div className="p-3 bg-gray-100 rounded-lg text-sm text-black">
                         Le paiement via PayPal sera effectué en Euro au taux de change en vigueur
                       </div>
                     )}
@@ -186,7 +186,7 @@ const CartPage: React.FC = () => {
                 {/* Customer Information Form */}
                 <form onSubmit={handleOrderSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-black mb-1">
                       Nom complet *
                     </label>
                     <input
@@ -195,12 +195,12 @@ const CartPage: React.FC = () => {
                       value={customerInfo.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-black mb-1">
                       Email *
                     </label>
                     <input
@@ -209,12 +209,12 @@ const CartPage: React.FC = () => {
                       value={customerInfo.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-black mb-1">
                       Téléphone *
                     </label>
                     <input
@@ -223,12 +223,12 @@ const CartPage: React.FC = () => {
                       value={customerInfo.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-black mb-1">
                       Adresse de livraison *
                     </label>
                     <textarea
@@ -237,7 +237,7 @@ const CartPage: React.FC = () => {
                       onChange={handleInputChange}
                       required
                       rows={3}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent resize-none"
                     />
                   </div>
 

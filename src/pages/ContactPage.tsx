@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Nous Contacter</h1>
+            <h1 className="text-4xl font-bold text-black mb-4">Nous Contacter</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Une question ? Besoin d'aide ? Notre équipe est là pour vous accompagner. 
               Contactez-nous via WhatsApp, email ou le formulaire ci-dessous.
@@ -39,18 +39,18 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-8">Informations de Contact</h2>
+              <h2 className="text-2xl font-bold text-black mb-8">Informations de Contact</h2>
               
               <div className="space-y-6">
                 <a 
                   href="https://wa.me/212600000000"
-                  className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow group"
+                  className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow group"
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors">
                     <MessageCircle className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">WhatsApp</h3>
+                    <h3 className="font-semibold text-black mb-1">WhatsApp</h3>
                     <p className="text-gray-600 mb-2">+212 6 00 00 00 00</p>
                     <p className="text-sm text-gray-500">Réponse immédiate pendant les heures ouvrables</p>
                   </div>
@@ -58,24 +58,24 @@ const ContactPage: React.FC = () => {
 
                 <a 
                   href="mailto:contact@reenweezelectro.ma"
-                  className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow group"
+                  className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow group"
                 >
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-gray-200 transition-colors">
+                    <Mail className="w-6 h-6 text-black" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
+                    <h3 className="font-semibold text-black mb-1">Email</h3>
                     <p className="text-gray-600 mb-2">contact@reenweezelectro.ma</p>
                     <p className="text-sm text-gray-500">Réponse sous 24h maximum</p>
                   </div>
                 </a>
 
-                <div className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md">
+                <div className="flex items-start space-x-4 p-4 bg-white rounded-xl shadow-md border border-gray-200">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Zone de Livraison</h3>
+                    <h3 className="font-semibold text-black mb-1">Zone de Livraison</h3>
                     <p className="text-gray-600 mb-2">Partout au Maroc</p>
                     <p className="text-sm text-gray-500">Livraison gratuite dans tout le royaume</p>
                   </div>
@@ -83,8 +83,8 @@ const ContactPage: React.FC = () => {
               </div>
 
               {/* Hours */}
-              <div className="mt-8 p-6 bg-blue-50 rounded-xl">
-                <h3 className="font-semibold text-gray-800 mb-4">Heures de Service</h3>
+              <div className="mt-8 p-6 bg-gray-50 rounded-xl">
+                <h3 className="font-semibold text-black mb-4">Heures de Service</h3>
                 <div className="space-y-2 text-gray-600">
                   <div className="flex justify-between">
                     <span>Lundi - Vendredi</span>
@@ -104,12 +104,12 @@ const ContactPage: React.FC = () => {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-8">Envoyez-nous un Message</h2>
+              <h2 className="text-2xl font-bold text-black mb-8">Envoyez-nous un Message</h2>
               
-              <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-md">
+              <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-md border border-gray-200">
                 <div className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                       Nom complet *
                     </label>
                     <input
@@ -119,13 +119,13 @@ const ContactPage: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
                       placeholder="Votre nom complet"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                       Email *
                     </label>
                     <input
@@ -135,13 +135,13 @@ const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors"
                       placeholder="votre@email.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
                       Message *
                     </label>
                     <textarea
@@ -151,14 +151,14 @@ const ContactPage: React.FC = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent transition-colors resize-none"
                       placeholder="Votre message..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors group"
+                    className="w-full btn-primary py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 group"
                   >
                     <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     <span>Envoyer le message</span>

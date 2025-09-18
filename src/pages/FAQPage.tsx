@@ -116,7 +116,7 @@ const FAQPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Centre d'Aide & FAQ</h1>
+            <h1 className="text-4xl font-bold text-black mb-4">Centre d'Aide & FAQ</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Trouvez rapidement les réponses à vos questions. 
               Si vous ne trouvez pas ce que vous cherchez, contactez-nous !
@@ -132,8 +132,8 @@ const FAQPage: React.FC = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full font-medium transition-colors ${
                     selectedCategory === category
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white text-gray-700 hover:bg-blue-50'
+                      ? 'bg-black text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                   }`}
                 >
                   {category === 'all' ? 'Toutes les catégories' : category}
@@ -145,14 +145,14 @@ const FAQPage: React.FC = () => {
           {/* FAQ Items */}
           <div className="space-y-4">
             {filteredFAQ.map(item => (
-              <div key={item.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+              <div key={item.id} className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
                 <button
                   onClick={() => toggleItem(item.id)}
                   className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">{item.question}</h3>
-                    <span className="text-sm text-blue-600">{item.category}</span>
+                    <h3 className="font-semibold text-black mb-1">{item.question}</h3>
+                    <span className="text-sm text-gray-600">{item.category}</span>
                   </div>
                   {openItems.includes(item.id) ? (
                     <ChevronUp className="w-5 h-5 text-gray-500" />
@@ -164,7 +164,7 @@ const FAQPage: React.FC = () => {
                 {openItems.includes(item.id) && (
                   <div className="px-6 pb-6 pt-0">
                     <div className="border-t border-gray-200 pt-4">
-                      <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+                      <p className="text-gray-700 leading-relaxed">{item.answer}</p>
                     </div>
                   </div>
                 )}
@@ -173,8 +173,8 @@ const FAQPage: React.FC = () => {
           </div>
 
           {/* Contact CTA */}
-          <div className="mt-12 bg-blue-50 rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="mt-12 bg-gray-50 rounded-2xl p-8 text-center">
+            <h2 className="text-2xl font-bold text-black mb-4">
               Vous ne trouvez pas votre réponse ?
             </h2>
             <p className="text-gray-600 mb-6">
@@ -190,7 +190,7 @@ const FAQPage: React.FC = () => {
               </a>
               <a 
                 href="mailto:contact@reenweezelectro.ma"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="btn-primary px-6 py-3 rounded-lg font-semibold"
               >
                 Envoyer un Email
               </a>

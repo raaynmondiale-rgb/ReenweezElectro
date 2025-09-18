@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
           {/* Logo et description */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                <span className="text-black font-bold text-xl">R</span>
               </div>
               <span className="text-2xl font-bold">ReenweezElectro</span>
             </div>
@@ -20,14 +20,14 @@ const Footer: React.FC = () => {
               Qualité, innovation et service client exceptionnel.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <Instagram className="w-5 h-5" />
+              <a href="https://instagram.com" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <Instagram className="w-5 h-5 text-black" />
               </a>
-              <a href="https://facebook.com" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <Facebook className="w-5 h-5" />
+              <a href="https://facebook.com" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <Facebook className="w-5 h-5 text-black" />
               </a>
-              <a href="https://youtube.com" className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <Youtube className="w-5 h-5" />
+              <a href="https://youtube.com" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <Youtube className="w-5 h-5 text-black" />
               </a>
             </div>
           </div>

@@ -17,7 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+    <div className="bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl transition-all duration-300 overflow-hidden group">
       <Link to={`/product/${product.id}`}>
         <div className="relative overflow-hidden">
           <img
@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {product.originalPrice && (
-            <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
+            <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 rounded-md text-sm font-semibold">
               -{Math.round((1 - product.price / product.originalPrice) * 100)}%
             </div>
           )}
@@ -40,7 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       <div className="p-4">
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-semibold text-gray-800 mb-2 hover:text-blue-600 transition-colors line-clamp-2">
+          <h3 className="font-semibold text-black mb-2 hover:text-gray-600 transition-colors line-clamp-2">
             {product.name}
           </h3>
         </Link>
@@ -61,9 +61,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center space-x-2">
-            <span className="text-lg font-bold text-gray-900">{product.price} MAD</span>
+            <span className="text-lg font-bold text-red-800">{product.price} MAD</span>
             {product.originalPrice && (
-              <span className="text-sm text-gray-500 line-through">{product.originalPrice} MAD</span>
+              <span className="text-sm text-black line-through">{product.originalPrice} MAD</span>
             )}
           </div>
         </div>
@@ -71,14 +71,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="flex items-center justify-between">
           <Link
             to={`/product/${product.id}`}
-            className="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+            className="text-black hover:text-gray-600 font-medium text-sm transition-colors"
           >
             Voir produit
           </Link>
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="flex items-center space-x-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
+            className="flex items-center space-x-1 btn-primary disabled:bg-gray-400 px-3 py-1.5 rounded-lg text-sm font-medium"
           >
             <ShoppingCart className="w-4 h-4" />
             <span>Ajouter</span>
